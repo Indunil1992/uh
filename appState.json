@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "uh/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\n\nexports.handler = function (event, context, callback) {\n    sns.publish({\n        Message: 'msg1',\n        Subject: 'subjct1',\n        MessageAttributes: {},\n        MessageStructure: 'String',\n        TopicArn: 'arn:aws:sns:us-east-1:318300609668:testIndunilSNS'\n    }).promise()\n        .then(data => {\n            // your code goes here\n        })\n        .catch(err => {\n            // error handling goes here\n        });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\n\nexports.handler = function (event, context, callback) {\n    sns.publish({\n        Message: 'msg1',\n        Subject: 'subjct1',\n        MessageAttributes: {},\n        MessageStructure: 'String',\n        TopicArn: 'arn:aws:sns:us-east-1:318300609668:testIndunilSNS'\n    }).promise()\n        .then(data => {\n            console.log(\"sucss\")\n            // your code goes here\n        })\n        .catch(err => {\n             console.log(\"errrrrr\")\n            // error handling goes here\n        });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -30,7 +30,16 @@
           "memory": 128,
           "layers": []
         },
-        "triggers": []
+        "triggers": [],
+        "testCases": {
+          "019cdab6-e463-4959-904a-d59037e29f72": {
+            "id": "019cdab6-e463-4959-904a-d59037e29f72",
+            "name": "Test event",
+            "functionId": "f6f77346-5b5a-4369-a00e-aa5eb21efeb7",
+            "event": "{\"key1\": \"value1\", \"key2\": \"value2\", \"key3\": \"value3\"}",
+            "eventTemplate": "hello-world"
+          }
+        }
       }
     },
     "deletedFiles": [],
@@ -92,7 +101,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1567168688488
+    "lastSave": 1567169914508
   },
   "VCS_STATE": {
     "provider": "GitHub",

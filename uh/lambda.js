@@ -10,9 +10,11 @@ exports.handler = function (event, context, callback) {
         TopicArn: 'arn:aws:sns:us-east-1:318300609668:testIndunilSNS'
     }).promise()
         .then(data => {
+            console.log("sucss")
             // your code goes here
         })
         .catch(err => {
+             console.log("errrrrr")
             // error handling goes here
         });
 
